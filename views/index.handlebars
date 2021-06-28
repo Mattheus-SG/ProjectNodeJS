@@ -1,0 +1,35 @@
+<title>UltraFlix | Inicio</title>
+
+<div class="bg-light p-5 rounded-lg m-3">
+    <h1 class="display-4">Hello, world!</h1>
+    <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to
+        featured content or information.</p>
+    <hr class="my-4">
+    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+</div>
+<hr>
+
+<h2>Ultimas postagens:</h2>
+<hr>
+
+
+{{#each postagens}}
+<div class="card mb-4">
+    <div class="card-body">
+        <p class="card-subtitle text-muted">{{categoria.nome}}</p>
+        <h3>{{titulo}}</h3>
+        <p>{{descricao}}</p>
+        <a class="btn btn-primary btn" href="/postagens/{{slug}}" role="button">Leia mais</a>
+    </div>
+    
+</div>
+{{else}}
+<h5>Nenhuma postagem</h5>
+{{/each}}
+
+<style>
+    .bg-light {
+        border-radius: 10px;
+    }
+</style>

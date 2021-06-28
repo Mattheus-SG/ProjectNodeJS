@@ -1,0 +1,39 @@
+
+<title>UltraFlix | Postagens</title>
+
+<h2>Lista de postagens: </h2>
+<hr>
+<a href="/admin/postagens/add"><button class="btn btn-primary mb-4">Nova postagem</button></a>
+
+
+{{#each postagens}}
+
+<div class="card mb-4" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">{{titulo}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{categoria.nome}}</h6>
+        <p class="card-text">{{conteudo}}</p>
+    </div>
+    <div class="card-body">
+        <a href="/admin/postagens/edit/{{_id}}">
+            <button class="btn btn-warning"><img src="/icons/pencil-square.svg" alt="edit" width="22" height="22"></button>
+        </a>
+        <a href="/admin/postagens/delete/{{_id}}">
+            <button class="btn btn-danger"><img src="/icons/trash.svg" alt="delete" width="22" height="22"></button>
+        </a>
+        <a href="">
+            <button class="btn btn-secondary"><img src="/icons/eye.svg" alt="view" width="22" height="22"></button>
+        </a>
+
+    </div>
+</div>
+
+{{else}}
+<h5>Nenhuma postagens registrada.</h5>
+{{/each}}
+
+<style>
+    .card-body a {
+        text-decoration: none;
+    }
+</style>

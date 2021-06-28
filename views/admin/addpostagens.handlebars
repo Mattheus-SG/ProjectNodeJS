@@ -1,0 +1,41 @@
+<title>UltraFlix | adicionar posatagem</title>
+
+<h3>Criar postagem</h3>
+<hr>
+
+{{!-- Erros --}}
+{{#each erros}}
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+    {{text}}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+
+{{else}}
+{{/each}}
+
+<div class="card">
+    <div class="card-body">
+        <form action="/admin/postagens/nova" method="post">
+            <label for="titulo" class="mb-1">Titulo:</label>
+            <input type="text" name="titulo" class="form-control mb-4">
+
+            <label for="slug" class="mb-1">Slug:</label>
+            <input type="text" name="slug" class="form-control mb-4">
+
+            <label for="descricao" class="mb-1">Descrição:</label>
+            <textarea type="text" name="descricao" class="form-control mb-4"></textarea>
+
+            <label for="conteudo" class="mb-1">Conteudo:</label>
+            <textarea type="text" name="conteudo" class="form-control mb-4"></textarea>
+            <label for="categoria">Categoria:</label>
+            <select class="form-select" name="categoria">
+                <option value="0" selected="true" disabled>Selecione</option>
+                {{#each categorias}}
+                    <option value="{{_id}}">{{nome}}</option>
+                {{else}}
+                {{/each}}
+            </select>
+            <button class="btn btn-success mt-3" type="submit">Criar postagem</button>
+        </form>
+    </div>
+</div>

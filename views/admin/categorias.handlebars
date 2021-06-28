@@ -1,0 +1,46 @@
+<title>UltraFlix | Categorias</title>
+
+<h2>Lisa de categorias: </h2>
+<hr>
+<a href="/admin/categorias/add">
+    
+    <button class="btn btn-primary"> Nova categorias</button>
+</a>
+
+{{#each categorias}}
+<div class="card mt-4">
+    <div class="card-body">
+        <h5>{{nome}}</h5>
+        <small>slug: {{slug}}</small><br>
+        <small>{{date}}</small>
+        <hr>
+        <div class="comandos-admin">
+            <a href="/admin/categorias/edit/{{this._id}}">
+                <button class="btn btn-warning"><img src="/icons/pencil-square.svg" alt="edit" width="22" height="22"></button>
+            </a>
+            <form action="/admin/categorias/deletar" method="post">
+                <input type="hidden" name="id" value="{{_id}}">
+                <a href="">
+                    <button type="submit" class="btn btn-danger"><img src="/icons/trash.svg" alt="edit" width="22" height="22"></button>
+                </a>
+            </form>
+        </div>
+    </div>
+</div>
+{{else}}
+<div class="mt-4">
+    <h5>Nenhuma categoria disponivel. <a href="/admin/categorias/add">Crie uma aqui.</a></h5>
+</div>
+{{/each}}
+
+<style>
+    .comandos-admin a {
+        text-decoration: none;
+        padding: 0px 7px 0px 0px;
+    }
+
+    .comandos-admin {
+        display: flex;
+    }
+
+</style>
